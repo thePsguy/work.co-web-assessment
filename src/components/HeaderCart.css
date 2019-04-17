@@ -1,0 +1,10 @@
+.headercart-container {
+    display: flex;
+    font-size: 12px;
+    cursor: pointer;
+    line-height: 56px;
+}
+
+.headercart-container:hover {
+    color: #407FC0;
+}

@@ -5,14 +5,16 @@ import { checkout } from '../actions'
 import { getTotal, getCartProducts } from '../reducers'
 import Cart from '../components/Cart'
 
-const CartContainer = ({ products, total, checkout }) => (
+const CartContainer = ({ products, total, checkout, onCloseModal }) => (
   <Cart
     products={products}
     total={total}
-    onCheckoutClicked={() => checkout(products)} />
+    onCheckoutClicked={() => checkout(products)}
+    onCloseModal={onCloseModal}/>
 )
 
 CartContainer.propTypes = {
+  onCloseModal: PropTypes.func,
   products: PropTypes.arrayOf(PropTypes.shape({
     id: PropTypes.number.isRequired,
     title: PropTypes.string.isRequired,

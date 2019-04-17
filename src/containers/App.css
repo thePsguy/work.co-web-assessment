@@ -1,0 +1,14 @@
+.mainHeading {
+    font-size: 2.5em;
+    font-weight: bold;
+    flex: 1;
+}
+
+.appContainer {
+    padding: 43px 6% 0 6%;
+}
+
+.headerContainer {
+    display: flex;
+    align-content: space-between;
+}

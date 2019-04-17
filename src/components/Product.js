@@ -10,7 +10,8 @@ const Product = ({ price, inventory, title }) => (
 Product.propTypes = {
   price: PropTypes.number,
   inventory: PropTypes.number,
-  title: PropTypes.string
+  title: PropTypes.string,
+  coverImage: PropTypes.string,
 }
 
 export default Product

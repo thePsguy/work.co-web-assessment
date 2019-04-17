@@ -1,8 +1,11 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import Product from './Product'
+import {Button} from "react-bootstrap"
+import cartSvg from '../cart.svg'
+import { Clear } from "@material-ui/icons"
 
-const Cart  = ({ products, total, onCheckoutClicked }) => {
+const Cart  = ({ products, total, onCheckoutClicked, onCloseModal }) => {
   const hasProducts = products.length > 0
   const nodes = hasProducts ? (
     products.map(product =>
@@ -14,18 +17,49 @@ const Cart  = ({ products, total, onCheckoutClicked }) => {
       />
     )
   ) : (
-    <em>Please add some products to cart.</em>
+    <div
+    style={{
+      display: 'flex',
+      flexDirection: 'column',
+      textAlign: 'center',
+      marginTop: '30%',
+      color: '#9B9B9B',
+    }}
+    >
+      <img
+        style={{
+          width: 100,
+          marginLeft: 'auto',
+          marginRight: 'auto',
+        }}
+        src={cartSvg} />
+    <em>Please add some products to your cart.</em>
+    </div>
   )
 
   return (
-    <div>
-      <h3>Your Cart</h3>
-      <div>{nodes}</div>
-      <p>Total: &#36;{total}</p>
-      <button onClick={onCheckoutClicked}
-        disabled={hasProducts ? '' : 'disabled'}>
-        Checkout
-      </button>
+    <div style={{ width: '100%', padding: '5%', height: '70vh' }}>
+      <div style={{display: 'flex'}}>
+        <h3 style={{ flex: 1 }}>Your Cart</h3>
+        <Clear style={{
+          cursor: 'pointer',
+          fontSize: '3em',
+          color: '#9B9B9B',
+          margin: "-30px -30px 0 0",
+        }}
+        onClick={onCloseModal} />
+      </div>
+      <hr />
+      {nodes}
+      {
+        products.length > 0 ? <div>
+          <p>Total: &#36;{total}</p>
+          <Button onClick={onCheckoutClicked}
+                  disabled={hasProducts ? '' : 'disabled'}>
+            Checkout
+          </Button>
+        </div> : null
+      }
     </div>
   )
 }
@@ -33,7 +67,8 @@ const Cart  = ({ products, total, onCheckoutClicked }) => {
 Cart.propTypes = {
   products: PropTypes.array,
   total: PropTypes.string,
-  onCheckoutClicked: PropTypes.func
+  onCheckoutClicked: PropTypes.func,
+  onCloseModal: PropTypes.func,
 }
 
 export default Cart
