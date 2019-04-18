@@ -9,7 +9,7 @@ import './HeaderCart.css';
 import { getTotal, getCartProducts } from '../reducers'
 import CartContainer from "../containers/CartContainer";
 
-  class HeaderCart extends React.Component {
+class HeaderCart extends React.Component {
 
   hasProducts = this.props.products.length > 0
   indicator = this.hasProducts ? (
@@ -20,10 +20,13 @@ import CartContainer from "../containers/CartContainer";
     </div>
   )
 
-  state = {
-    cartVisible: true,
-    mobileView: false,
-  };
+  constructor(props) {
+    super(props);
+    this.state = {
+      cartVisible: false,
+      mobileView: false,
+    };
+  }
 
   componentDidMount() {
     this.setState({mobileView: (window.innerWidth <= 760)})
@@ -49,12 +52,22 @@ import CartContainer from "../containers/CartContainer";
     }
   }
 
-  closeCart() {
-    // debugger;
-    this.setState({cartVisible: false});
+  closeCart(e) {
+    e.stopPropagation();
+    console.log("0 - ", this.state);
+    this.state.cartVisible = false;
+    console.log("1 - ", this.state);
+    this.setState((state,props) => {
+      return {
+        cartVisible: false
+      }
+    }, () => {
+      console.log("2 - ", this.state);
+    });
   }
 
   render() {
+
     return (
       <div className={'headercart-container'} onClick={() => {
         this.setState({cartVisible: true})
@@ -67,17 +80,9 @@ import CartContainer from "../containers/CartContainer";
           fullScreen={this.state.mobileView}
           maxWidth={'md'}
           fullWidth={true}
-          onEscapeKeyDown={() => {
-            this.setState({cartVisible: false})
-          }}
-          onBackdropClick={() => {
-            this.setState({cartVisible: false})
-          }}
-          onExit={() => {
-            this.setState({cartVisible: false})
-          }}
+          onClose={this.closeCart.bind(this)}
         >
-          <CartContainer onCloseModal={this.closeCart.bind(this)}/>
+          <CartContainer onCloseModal={this.closeCart.bind(this)} />
         </Dialog>
 
       </div>

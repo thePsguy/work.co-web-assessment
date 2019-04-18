@@ -6,6 +6,7 @@ import cartSvg from '../cart.svg'
 import { Clear } from "@material-ui/icons"
 
 const Cart  = ({ products, total, onCheckoutClicked, onCloseModal }) => {
+  // setTimeout(onCloseModal(), 5000);
   const hasProducts = products.length > 0
   const nodes = hasProducts ? (
     products.map(product =>
@@ -53,7 +54,11 @@ const Cart  = ({ products, total, onCheckoutClicked, onCloseModal }) => {
       {nodes}
       {
         products.length > 0 ? <div>
-          <p>Total: &#36;{total}</p>
+          <hr />
+          <p>Subtotal: &#36;{total}</p>
+          <p>Taxes: &#36;{(total*0.08).toFixed(2)}</p>
+          <hr />
+          <p>Total: &#36;{(total*1.08).toFixed(2)}</p>
           <Button onClick={onCheckoutClicked}
                   disabled={hasProducts ? '' : 'disabled'}>
             Checkout

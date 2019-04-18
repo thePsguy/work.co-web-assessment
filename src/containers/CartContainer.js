@@ -5,13 +5,16 @@ import { checkout } from '../actions'
 import { getTotal, getCartProducts } from '../reducers'
 import Cart from '../components/Cart'
 
-const CartContainer = ({ products, total, checkout, onCloseModal }) => (
-  <Cart
-    products={products}
-    total={total}
-    onCheckoutClicked={() => checkout(products)}
-    onCloseModal={onCloseModal}/>
-)
+const CartContainer = ({ products, total, checkout, onCloseModal }) => {
+
+  return(
+    <Cart
+      products={products}
+      total={total}
+      onCheckoutClicked={() => checkout(products)}
+      onCloseModal={onCloseModal}/>
+  )
+}
 
 CartContainer.propTypes = {
   onCloseModal: PropTypes.func,
