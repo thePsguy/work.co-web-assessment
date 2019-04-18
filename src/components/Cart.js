@@ -53,14 +53,46 @@ const Cart  = ({ products, total, onCheckoutClicked, onCloseModal }) => {
       <hr />
       {nodes}
       {
-        products.length > 0 ? <div>
+        products.length > 0 ?
+        <div>
           <hr />
-          <p>Subtotal: &#36;{total}</p>
-          <p>Taxes: &#36;{(total*0.08).toFixed(2)}</p>
+          <div style={{display: 'flex'}}>
+            <p style={{ flex: 1 }}>Subtotal:</p>
+            <p style={{ fontWeight: 100, color: '#9d9d9d' }}>&#36;{total}</p>
+          </div>
+          <div style={{display: 'flex'}}>
+            <p style={{ flex: 1 }}>Taxes:</p>
+            <p style={{ fontWeight: 100, color: '#9d9d9d' }}>&#36;{(total*0.08).toFixed(2)}</p>
+          </div>
           <hr />
-          <p>Total: &#36;{(total*1.08).toFixed(2)}</p>
-          <Button onClick={onCheckoutClicked}
-                  disabled={hasProducts ? '' : 'disabled'}>
+          <div style={{display: 'flex'}}>
+            <p style={{ flex: 1 }}>Total:</p>
+            <p style={{ fontWeight: 100, color: '#9d9d9d' }}>&#36;{(total*1.08).toFixed(2)}</p>
+          </div>
+          <Button
+            style={{
+              backgroundColor: '#9d9d9d',
+              borderColor: '#9d9d9d',
+              width: '100%',
+              borderRadius: 0,
+            }}
+            // onClick={onCheckoutClicked}
+            disabled={hasProducts ? '' : 'disabled'}>
+            Update
+          </Button>
+          <br />
+          <Button
+            style={{
+              backgroundColor: '#5e97d1',
+              borderColor: '#5e97d1',
+              width: '100%',
+              position: 'absolute',
+              marginLeft: '-5%',
+              borderRadius: 0,
+              marginTop: 47,
+            }}
+            onClick={onCheckoutClicked}
+            disabled={hasProducts ? '' : 'disabled'}>
             Checkout
           </Button>
         </div> : null

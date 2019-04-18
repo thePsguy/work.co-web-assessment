@@ -13,7 +13,7 @@ class HeaderCart extends React.Component {
 
   hasProducts = this.props.products.length > 0
   indicator = this.hasProducts ? (
-    <em>({this.props.products.length})</em>
+    <em>Cart ({this.props.products.length})</em>
   ) : (
     <div>
     <em>Your cart is empty.</em>
@@ -37,7 +37,7 @@ class HeaderCart extends React.Component {
   componentWillReceiveProps(nextProps, nextContext) {
     this.hasProducts = nextProps.products.length > 0
     this.indicator = this.hasProducts ? (
-      <em>({nextProps.products.length})</em>
+      <em>Cart ({nextProps.products.length})</em>
     ) : (
       <div>
         <em>Your cart is empty.</em>

@@ -64,7 +64,9 @@
 }
 
 .productPrice {
-
+    font-weight: 100;
+    color: #9d9d9d;
+    line-height: 3;
 }
 
 .productInventory {
