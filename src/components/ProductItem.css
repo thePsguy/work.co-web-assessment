@@ -8,6 +8,21 @@
     overflow: hidden;
 }
 
+@media only screen and (max-width: 600px) {
+    .rootContainer {
+        flex-direction: column;
+        height: 365px;
+    }
+
+    .productImageContainer {
+        flex: 1.5 !important;
+    }
+
+    .contentContainer {
+        flex: 1 !important;
+    }
+}
+
 .productImage {
     height: 100%;
     width: 100%;
@@ -16,6 +31,7 @@
 
 .productImageContainer {
     flex: 1;
+    display: flex;
 }
 
 .standardButton {

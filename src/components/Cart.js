@@ -40,13 +40,13 @@ const Cart  = ({ products, total, onCheckoutClicked, onCloseModal }) => {
 
   return (
     <div style={{ width: '100%', padding: '5%', height: '70vh' }}>
-      <div style={{display: 'flex'}}>
+      <div style={{display: 'flex', marginTop: 20 }}>
         <h3 style={{ flex: 1 }}>Your Cart</h3>
         <Clear style={{
           cursor: 'pointer',
           fontSize: '3em',
           color: '#9B9B9B',
-          margin: "-30px -30px 0 0",
+          margin: "-50px -30px 0 0",
         }}
         onClick={onCloseModal} />
       </div>
