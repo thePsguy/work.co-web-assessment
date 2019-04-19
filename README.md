@@ -1,3 +1,22 @@
+# Notes on process:
+* Initially decided to use bootstrap:
+  - Faced incompatibility issues with latest version of `react-bootstrap` needing react 16.x, and project being 15.x
+  - Fixed above issues by upgrading to required versions of `react` and `react-dom` as needed, after ensuring project was not affected by this update.
+  - Ended up only using the Button from bootstrap.
+* Finally ended up using `flexbox` throughout:
+  - Very actively been working with `flex` at work lately, much easier to get things done.
+  - Used media query for the product cards' mobile view: [link in code](https://github.com/thePsguy/work.co-web-assessment/blob/c3e82e2a371b1993045fd425df351df6bbeb9622/src/components/ProductItem.css#L11)
+  - For a non complicated UI like this, using `flex`, I believe, gave me more control over the UI than I would have had with bootstrap.
+ * Icons:
+    - `material-ui/icons` used for icons in sketch what were just lines (just the `X` for now)
+    - Shopping cart icon saved as `svg` from sketch to be used as is.
+  * Stylesheets:
+    - Only created stylesheets in componenets needing _hover_, _mediaqueries_, and / or _tons of css_, used inline styles in all other places due to time contraints.
+    - Ideally would use css modules for component specific local class names.
+<hr />
+<hr />
+<hr />
+
 # Work & Co Web Code Assessment
 
 This is a copy of the [Redux Shopping Cart Example](https://github.com/reactjs/redux/tree/master/examples/shopping-cart).
