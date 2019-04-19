@@ -5,7 +5,7 @@
   - Ended up only using the Button from bootstrap.
 * Finally ended up using `flexbox` throughout:
   - Very actively been working with `flex` at work lately, much easier to get things done.
-  - Used media query for the product cards' mobile view: [link in code](https://github.com/thePsguy/work.co-web-assessment/blob/c3e82e2a371b1993045fd425df351df6bbeb9622/src/components/ProductItem.css#L11)
+  - Used media query for the product cards' mobile view: [link to code](https://github.com/thePsguy/work.co-web-assessment/blob/c3e82e2a371b1993045fd425df351df6bbeb9622/src/components/ProductItem.css#L11)
   - For a non complicated UI like this, using `flex`, I believe, gave me more control over the UI than I would have had with bootstrap.
  * Icons:
     - `material-ui/icons` used for icons in sketch what were just lines (just the `X` for now)
@@ -13,6 +13,10 @@
   * Stylesheets:
     - Only created stylesheets in componenets needing _hover_, _mediaqueries_, and / or _tons of css_, used inline styles in all other places due to time contraints.
     - Ideally would use css modules for component specific local class names.
+  * Cart modal dialog:
+    - Used `material-ui/dialog` to show the modal view for the cart.
+    - Added and mapped cross button to close modal.
+    - Faced issues with closing modal since clicking to close it meant its parent was clicked as well, setting `cartVisible` back to `true` in the state. Realized needed to call `stopPropagation()` on click event to prevent this: [link to code](https://github.com/thePsguy/work.co-web-assessment/blob/6e27f72c0f657e96e6097106c0583c27da780d4c/src/components/HeaderCart.js#L56)
 <hr />
 <hr />
 <hr />
